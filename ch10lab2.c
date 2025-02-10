@@ -1,27 +1,47 @@
 //ch10lab2.c
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIZE    10
 
 int main()
 {
-    int n1;
-    int n2;
+    int i;
+    int scores[SIZE];
+    int max, min;
 
-    printf("정수 2개를 입력하세요:");
-    scanf("%d %d", &n1, &n2);
+    srand(time(NULL)); //난수 시드 값 초기화
 
-    if(n1 % 2 == 0 && n2 % 2 == 0)
+
+    // 10명의 점수 초기화
+    for(i = 0; i < SIZE; i++)
     {
-        printf("짝수\n");
+        scores[i] = rand() % 101;
     }
-    else if(n1 % 2 == 1 && n2 % 2 == 1)
+
+
+    // 1.최고점, 죄저점 찾기
+    // 2. 최고, 최저 점수의 학생 번호 출력하기
+    max = min = scores[0];
+    for(i = 0; i < SIZE; i++)
     {
-        printf("홀수\n");
+
+        if(scores[i] > max) max = scores[i];
+        if(scores[i] < min) min = scores[i];
     }
-    else
+
+
+    // 10명 점수 출력
+    printf("점수: ");
+    for(i = 0; i < SIZE; i++)
     {
-        printf("홀짝\n");
+        printf("%d ", scores[i]);
     }
+    printf("\n");
+
+    printf("최댓값은 %d,최솟값은 %d입니다.\n", max, min);
 
     return 0;
 }
