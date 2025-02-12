@@ -1,40 +1,30 @@
-//ch12lab2.c
+// ch12lab2.c
 
 #include <stdio.h>
 
 int main()
 {
-    int n1, n2, result;
-    char op;
+    int i, j;
+    int v = 0;
+    int arr[4][4] = {0};
 
-    printf("두 개의 정수 입력: ");
-    scanf("%d %d", &n1, &n2);
-
-    printf("%d과 %d의 연산을 선택하세요(+, -, *, /, %):", n1, n2);
-    scanf(" %c", &op);
-
-    switch(op)
+    for(int i = 0; i < 4; i++)
     {
-    case '+':
-        result = n1 + n2;
-        break;
-    case '-':
-        result = n1 - n2;
-        break;
-    case '*':
-        result = n1 * n2;
-        break;
-    case '/':
-        result = n1 / n2;
-        break;
-    case '%':
-        result = n1 % n2;
-        break;
-    default:
-        printf("잘못된 연산자입니다.");
-        break;
+        for(int j = 0; j < 4; j++)\
+        {
+            v += 2;
+            arr[i][j] =v;
+        }
     }
-        printf("%d %c %d 는 %d 입니다.\n", n1, op, n2, result);
+
+    for(int  i = 0; i < 4; i++)
+    {
+        for(int j = 0; j < 4; j++)
+        {
+            printf("%2d ", arr[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }

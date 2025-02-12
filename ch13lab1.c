@@ -4,18 +4,18 @@
 
 int main()
 {
-    int n1 = 0;
-    int n2 = 0;
+    int num;
+    int *pX;
+    int *pY;
 
-    while(n1 < 3)
-    {
+    num= 30;
+    pX = &num;
+    pY = &num;
 
-       n1 += 1;
+    printf("num: %d *pX: %d, *pY: %d\n", num, *pX, *pY);
 
-        printf("%d 번째 정수를 입력하세요: ", n1);
-        scanf("%d", &n2);
+    num= 35;
+    printf("num: %d *pX: %d, *pY: %d\n", num, *pX, *pY);
 
-        printf("입력된 정수는 %d입니다.\n", n2);
-    }
     return 0;
 }
